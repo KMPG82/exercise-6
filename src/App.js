@@ -1,10 +1,10 @@
-import './App.css';
-import CalculatorDisplay from './components/CalculatorDisplay';
+import './assets/App.css'
+import Panel from './components/Panel';
 
 function App() {
   return (
     <div className="App">
-      <CalculatorDisplay />
+      <Panel />
     </div>
   );
 }

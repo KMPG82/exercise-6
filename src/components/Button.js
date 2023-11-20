@@ -1,7 +1,8 @@
 import React from 'react'
+//import '../assets/button.css'
 
-export default function Button() {
+export default function Button(props) {
   return (
-    <div>Button</div>
+      <button className='button' onClick={props.input}>{props.value}</button>
   )
 }
