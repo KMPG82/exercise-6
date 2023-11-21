@@ -11,6 +11,7 @@ export default function Panel() {
         '1', '2', '3', '*',
         'C', '0', '=', '/'
     ]
+    const operators = ['+', '-', '*', '/'];
 
     //initialize buttons and their values
     let buttons = [];
@@ -21,15 +22,20 @@ export default function Panel() {
     //for changing the display
     const [equation, setEquation] = useState([])
     const [operand, setOperand] = useState('')
+    const [firstEntry, setFirstEntry] = useState(false)
 
     function input(e) {
-        if (e.target.innerText === '+' || e.target.innerText === '-' || e.target.innerText === '*' || e.target.innerText === '/') {        
-            if (operand !== '') {
-                setEquation(equation => [...equation, operand]);
+        if (e.target.innerText === '+' || e.target.innerText === '-' || e.target.innerText === '*' || e.target.innerText === '/') {
+            console.log('firstEntry:', firstEntry);
+            if ((!operators.includes(equation[equation.length - 1]) && firstEntry)) {
+                if (operand !== '') {
+                    setEquation(equation => [...equation, operand]);
+                }
+    
+                setEquation(equation => [...equation, e.target.innerText]);
+                setOperand('');   
             }
-
-            setEquation(equation => [...equation, e.target.innerText]);
-            setOperand('');
+          
         }
         else if (e.target.innerText === '='){
             console.log('equals')
@@ -44,8 +50,11 @@ export default function Panel() {
             console.log('clear');
             setEquation([]);
             setOperand('');
+            setFirstEntry(false);
         }
         else {
+            setFirstEntry(true);
+            console.log('firstEntry:', firstEntry);
             let number = operand;
             number += e.target.innerText;
 
