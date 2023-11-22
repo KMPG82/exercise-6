@@ -30,7 +30,7 @@
     margin-top: 10px;
 }
 
-button {
+.calculatorButton {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 5%;
     background-color: #98002E;
@@ -40,7 +40,7 @@ button {
     color: #F9A01B;
 }
 
-button:hover {
+.calculatorButton:hover {
     cursor: pointer;
     background-color: #b90038;
 }
