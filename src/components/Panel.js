@@ -11,7 +11,6 @@ export default function Panel() {
         '1', '2', '3', '*',
         'C', '0', '=', '/'
     ]
-    const operators = ['+', '-', '*', '/'];
 
     //initialize buttons and their values
     let buttons = [];
@@ -27,13 +26,14 @@ export default function Panel() {
     function input(e) {
         if (e.target.innerText === '+' || e.target.innerText === '-' || e.target.innerText === '*' || e.target.innerText === '/') {
             console.log('firstEntry:', firstEntry);
-            if ((!operators.includes(equation[equation.length - 1]) && firstEntry)) {
+            if (firstEntry) {
                 if (operand !== '') {
                     setEquation(equation => [...equation, operand]);
                 }
     
                 setEquation(equation => [...equation, e.target.innerText]);
                 setOperand('');   
+                setFirstEntry(false);
             }
           
         }
