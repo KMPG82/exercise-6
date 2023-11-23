@@ -13,6 +13,11 @@
     width: 74px;
     border-color: black;
 }
+
+.square:hover{
+   cursor: pointer;
+   background-color: #dfdfdf; 
+}
   
 .status {
     margin-bottom: 10px;
